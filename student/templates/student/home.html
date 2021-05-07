@@ -1,0 +1,86 @@
+{% extends "student/base.html" %}
+
+{% block content %}
+
+        <div class="container">
+            <div class ="jumbotron bg-info" style="text-align: center;">
+                <h1 style="color:white;">Student Dashboard</h1>
+            </div>
+        </div>
+
+        <div class="row" style="margin-top: 100px; height: 200px;">
+            <div class="col-xl-3 col-md-4 py-2 mx-auto">
+                <div class="card bg-info text-white h-100">
+                    <div class="card-body bg-info">
+                        <div class="rotate">
+                            <i class="fa fa-4x"></i>
+                        </div>
+                        <h6 class="text-uppercase">Average GPA:</h6>
+                        <h1 class="display-4">{{ avgGpa }}</h1>
+                        
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-3 col-md-4 py-2 mx-auto">
+                <div class="card text-white bg-info h-100">
+                    <div class="card-body bg-info">
+                        <div class="rotate">
+                            <i class="fa fa-4x"></i>
+                        </div>
+                        <h6 class="text-uppercase">Total I.T. Majors:</h6>
+                        <h1 class="display-4">{{ totalIT }}</h1>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-3 col-md-4 py-2 mx-auto">
+                <div class="card text-white bg-info h-100">
+                    <div class="card-body bg-info">
+                        <div class="rotate">
+                            <i class="fa fa-4x"></i>
+                        </div>
+                        <h6 class="text-uppercase">Total Physics Majors:</h6>
+                        <h1 class="display-4">{{ totalPhysics }}</h1>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+
+        <div class="row" style="margin-top: 100px; height: 200px;">
+            <div class="col-xl-3 col-md-4 py-2 mx-auto">
+                <div class="card bg-info text-white h-100">
+                    <div class="card-body bg-info">
+                        <div class="rotate">
+                            <i class="fa fa-4x"></i>
+                        </div>
+                        <h6 class="text-uppercase">Total Stats Majors:</h6>
+                        <h1 class="display-4">{{ totalStats }}</h1>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-3 col-md-4 py-2 mx-auto">
+                <div class="card text-white bg-info h-100">
+                    <div class="card-body bg-info">
+                        <div class="rotate">
+                            <i class="fa fa-4x"></i>
+                        </div>
+                        <h6 class="text-uppercase">Total Chemistry Majors:</h6>
+                        <h1 class="display-4">{{ totalChem }}</h1>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-3 col-md-4 py-2 mx-auto ">
+                <div class="card text-white bg-info h-100">
+                    <div class="card-body bg-info">
+                        <div class="rotate">
+                            <i class="fa fa-4x"></i>
+                        </div>
+                        <h6 class="text-uppercase">Total Marketing Majors:</h6>
+                        <h1 class="display-4">{{ totalMarketing }}</h1>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+
+{% endblock %}

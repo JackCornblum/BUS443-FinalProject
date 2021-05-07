@@ -1,0 +1,12 @@
+.nav-link {
+    color: darkslategrey;
+    font-weight: bold;
+}
+
+.navbar-item {
+    font-weight: bold;
+}
+
+.jumbotron {
+    text-align: center;
+}

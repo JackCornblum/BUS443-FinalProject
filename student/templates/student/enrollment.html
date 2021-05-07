@@ -1,0 +1,101 @@
+{% extends "student/base.html" %}
+
+{% block content %}
+<div class="container" style="margin-top:50px">
+
+    <div class="container" style="text-align:center">
+        <div class="row">
+            <div class="col-md-6">
+                <select id="studentname">
+                    {% if request.session.studentname %}
+                    <option selected="{{ request.session.studentname }}">{{ request.session.studentname }}</option>
+                    {% else %}
+                    <option selected="">Select Student</option>
+                    {% endif %}
+                    {% for name in student %}
+                    <option value="{{ name.studentname }}">{{ name.studentname }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="col-md-6">
+                <select id="course">
+                    <option selected="">Select Course</option>
+                    {% for name in course %}
+                    <option value="{{ name.coursetitle }}">{{ name.coursetitle }}</option>
+                    {% endfor %}
+                </select>
+            </div><br/><br/>
+            <button class="btn btn-md btn-info" id="enroll" style="margin:auto">Enroll</button>
+        </div>
+    </div><br/>
+
+    <div class="container" style="text-align:center">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Student Name</th>
+                    <th>Course Title</th>
+                </tr>
+            </thead>
+            <tbody>
+                
+                {% for row in enrollment %}
+                <tr>
+                    <td>{{ row.student }}</td>
+                    <td>{{ row.course }}</td>
+                </tr>  
+                {% endfor %}   
+                
+
+            </tbody>
+        </table>
+
+
+    </div>
+
+</div>
+
+<script>
+
+    $(document).ready(function(){
+
+        $('#enroll').click(function(){
+
+             $.ajax({
+
+                url:"{% url 'saveenrollment' %}",
+                data: {
+                    sname: $('#studentname').val(),
+                    course: $('#course').val()
+                },
+                success: function(){
+                    window.location = "{% url 'enrollment' %}"
+                }
+
+            });
+
+        });
+
+        $('#studentname').change(function (){
+
+            $.ajax({
+
+                url:"{% url 'saveenrollment' %}",
+                data: {
+                    sname: $('#studentname').val(),
+                    
+                },
+                success: function(){
+                    window.location = "{% url 'enrollment' %}"
+                }
+
+            });
+
+        });
+
+    });
+</script>
+
+
+
+{% endblock %}

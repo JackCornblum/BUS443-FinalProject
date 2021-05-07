@@ -1,0 +1,54 @@
+{% extends "student/base.html" %}
+
+{% block content %}
+
+        <div class="container">
+            <div class ="jumbotron" style="text-align: center;">
+                <h1>Course Info</h1>
+            </div>
+        </div>
+
+        <div class="container">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Course ID</th>
+                        <th>Course Title</th>
+                        <th>Course Name</th>
+                        <th>Section ID</th>
+                        <th>Department</th>
+                        <th>Instructor Name</th>
+                    </tr>
+                </thead>
+                <tbody>
+                {% for row in data %}
+                    <tr>
+                        <td style="font-weight: 500;">{{ row.courseid }}</td>
+                        <td>{{ row.coursetitle }}</td>
+                        <td>{{ row.coursename }}</td>
+                        <td>{{ row.sectionid }}</td>
+                        <td>{{ row.coursedepartment }}</td>
+                        <td>{{ row.instructorname }}</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+
+            <div class="pagination">
+                <span class="step-links">
+                    {% if data.has_previous %}
+                        <a href="?page=1">&laquo: First</a>
+                        <a href="?page={{ data.previous_page_number }}">Previous</a>
+                    {% endif %}
+                    <span class="current">
+                        page {{ data.number }} of {{ data.paginator.num_pages }}
+                    </span>
+                    {% if data.has_next %}
+                        <a href="?page={{ data.next_page_number }}">Next</a>
+                        <a href="?page={{ data.paginator.num_pages }}">Last &raquo</a>
+                    {% endif %}
+                </span>    
+            </div>
+        </div>
+
+{% endblock %}
